@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy Trading Visualisation</title>
+    
+    <style>
+        /* CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+        position: relative; /* Ensure relative positioning for absolute positioning */
+        }
+        #header {
+            width: 100%;
+            text-align: center;
+            padding: 20px 0;
+            background-color: #fff;
+        }
+        #vis {
+            display: flex;
+        }
+        
+        #map {
+            /*flex: 1;  Each takes up half of the available space */
+            position: fixed; /* Adjust as needed */
+            top: 15%;
+            right: 0%;
+            width: 70%;
+            height: 100%;
+            
+        }
+        #side {
+            position: fixed;
+            top: 15%;
+            left: 0%;
+            width: 30%;
+            height: 100%;
+        }
+        #graph {
+            position: fixed;
+            top: 10%;
+            left: 2%;
+            width: 25%;
+            height: 25%;
+            
+            
+        }
+        #trade {
+            position: fixed;
+            top: 60%;
+            left: 12.5%;
+            transform: translate(-50%, -50%);
+            width: 10%;
+            height: 5%;
+        }
+        #global {
+            position: fixed;
+            top: 80%;
+            left: 15%;
+            transform: translate(-50%, -50%);
+            width: 30%;
+            height: 40%;
+        }
+    
+        
+        #slider {
+            position: fixed;
+            bottom: 0;
+            left: 35%;
+            right: 0%;
+            margin: 20px;
+            width: calc(50% - 40px); /* 100% width minus the margins */
+            height: 50px;
+             /* Optional: to give a background color */
+            z-index: 1000; /* Optional: to ensure it stays above other elements */
+        }
+
+        #slider .track,
+        #slider .track-inset,
+        #slider .track-overlay {
+            stroke-linecap: round;
+        }
+
+        #slider .track {
+            stroke: #ddd;
+            stroke-width: 8px;
+        }
+
+        #slider .track-inset {
+            stroke: #ddd;
+            stroke-width: 6px;
+        }
+
+        #slider .track-overlay {
+            pointer-events: stroke;
+            stroke-width: 50px;
+            stroke: transparent;
+            cursor: crosshair;
+        }
+
+        #slider .handle {
+
+            fill: #58A399;
+            stroke: #000;
+            stroke-opacity: 0.5;
+            stroke-width: 1.25px;
+        }
+
+        #slider .label {
+            font-size: 12px;
+            text-anchor: middle;
+            dy: -1.5em;
+        }
+
+
+        svg {
+            width: 100%;
+            height: auto;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    
+    <div id="header">
+        <h1 style="text-align: center;">Energy Trading Visualisation: A project by Istok Ceric, Mahmudul Hasan and Joshua Soffner</h1>
+        <h2 style="text-align: center;">This site displays trading volumes of electric energy between countries. Values of imports and exports are per 1.000 Euro.</h2>
+        
+    </div>
+    
+    <div id="vis">
+        <div id="map"></div>
+        <div id="side"></div>
+        <div id="graph"></div>
+        
+        <div id="global"></div>
+        <div id="trade"></div>
+        <div id="slider"></div>
+    </div>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://d3js.org/topojson.v1.min.js"></script>
+    <script src="script_v13.js"></script>
+</body>
+</html>
